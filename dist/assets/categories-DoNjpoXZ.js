@@ -1,0 +1,1 @@
+import{t as e}from"./index-BSzTwoUp.js";var t={cntt:()=>e(()=>import(`./cntt-Dmb86qyN.js`),[]),ktpm:()=>e(()=>import(`./ktpm-Cq29SSF5.js`),[]),khmt:()=>e(()=>import(`./khmt-DoA5Eyg_.js`),[])};async function n(e){let n=t[e];if(!n)throw Error(`Không tìm thấy chương trình đào tạo: ${e}`);return(await n()).default}export{t as default,n as loadCategories};

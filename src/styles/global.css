@@ -1,0 +1,311 @@
+/* === Global Styles cho HCMUS Portal (100% Local-First) === */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --primary: #004A98;
+  --primary-light: #1664b4;
+  --primary-dark: #003366;
+  --accent: #F39C12;
+  --accent-hover: #d68100;
+  --success: #27ae60;
+  --danger: #e74c3c;
+  --warning: #e67e22;
+  --info: #2980b9;
+  --bg: #f4f7f6;
+  --bg-card: #ffffff;
+  --text: #2c3e50;
+  --text-light: #576574;
+  --text-muted: #8395a7;
+  --border: #dcdde1;
+  --border-light: #f1f2f6;
+  --radius: 8px;
+  --radius-lg: 12px;
+  --shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 6px 20px rgba(0, 0, 0, 0.08);
+  --transition: all 0.2s ease;
+  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", sans-serif;
+  --sidebar-width: 270px;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100%;
+  font-family: var(--font);
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
+}
+
+/* === BỐ CỤC 2 PHẦN CHO MÁY TÍNH (DESKTOP LAYOUT) === */
+.app-container {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  background-color: var(--bg);
+}
+
+/* Side panel bên trái cho máy tính */
+.desktop-side-panel {
+  width: var(--sidebar-width);
+  min-width: var(--sidebar-width);
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  left: 0;
+  background-color: #ffffff;
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.03);
+}
+
+/* Vùng nội dung chính ở bên phải cho máy tính */
+.desktop-main-content {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--bg);
+}
+
+.content-inner {
+  flex: 1;
+  max-width: 1300px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 24px 28px;
+}
+
+/* === BỐ CỤC CHO ĐIỆN THOẠI (MOBILE LAYOUT) === */
+.mobile-top-bar {
+  display: none;
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 54px;
+  background: linear-gradient(135deg, #004A98 0%, #003366 100%);
+  color: #ffffff;
+  padding: 0 14px;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.mobile-bottom-panel {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background-color: #ffffff;
+  border-top: 1px solid var(--border);
+  box-shadow: 0 -3px 12px rgba(0, 0, 0, 0.08);
+  z-index: 1000;
+  align-items: center;
+  justify-content: space-around;
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* Card chuẩn */
+.card {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  padding: 20px;
+  margin-bottom: 18px;
+  border: 1px solid var(--border-light);
+  transition: var(--transition);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+/* Badges */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border-radius: 16px;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+.badge-primary { background: var(--primary); color: #fff; }
+.badge-success { background: var(--success); color: #fff; }
+.badge-warning { background: var(--warning); color: #fff; }
+.badge-danger { background: var(--danger); color: #fff; }
+.badge-info { background: var(--info); color: #fff; }
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: var(--radius);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.btn-primary { background: var(--primary); color: #fff; }
+.btn-primary:hover { background: var(--primary-light); color: #fff; }
+.btn-accent { background: var(--accent); color: #fff; }
+.btn-accent:hover { background: var(--accent-hover); color: #fff; }
+.btn-outline {
+  background: transparent;
+  border: 1.5px solid var(--primary);
+  color: var(--primary);
+}
+.btn-outline:hover { background: var(--primary); color: #fff; }
+
+/* Inputs */
+.input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 13px;
+  outline: none;
+  background-color: #fff;
+  transition: var(--transition);
+}
+.input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(0, 74, 152, 0.12);
+}
+
+/* Responsive Table */
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: var(--radius);
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-light);
+  font-size: 13px;
+}
+th {
+  background: var(--primary);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.3px;
+}
+tr:hover {
+  background-color: #f8fafc;
+}
+
+/* Grids */
+.grid {
+  display: grid;
+  gap: 16px;
+}
+.grid-2 { grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); }
+.grid-3 { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+.grid-4 { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+
+/* Section Title */
+.section-title {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--primary);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 3px solid var(--accent);
+  padding-bottom: 6px;
+  width: fit-content;
+}
+
+/* Animations */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* === RESPONSIVE RULES CHO ĐIỆN THOẠI (DƯỚI 900px) === */
+@media (max-width: 900px) {
+  /* Ẩn side panel bên trái trên điện thoại */
+  .desktop-side-panel {
+    display: none !important;
+  }
+
+  /* Hiện thanh Top Bar & Bottom Panel trên điện thoại */
+  .mobile-top-bar {
+    display: flex !important;
+  }
+  .mobile-bottom-panel {
+    display: flex !important;
+  }
+
+  .desktop-main-content {
+    min-height: 100vh;
+  }
+
+  /* Nội dung co giãn vừa khít màn hình nhỏ, có đệm đáy 76px để không bị che bởi bottom bar */
+  .content-inner {
+    padding: 14px 10px 84px 10px !important;
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* Co lại font chữ và padding của card cho gọn gàng */
+  .card {
+    padding: 14px 12px !important;
+    border-radius: 10px !important;
+    margin-bottom: 14px !important;
+  }
+
+  .section-title {
+    font-size: 18px !important;
+    margin-bottom: 10px !important;
+  }
+
+  /* Chuyển tất cả grid thành 1 cột trên điện thoại để không bị chật */
+  .grid-2, .grid-3, .grid-4 {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  /* Thu nhỏ padding bảng và cho phép cuộn ngang */
+  th, td {
+    padding: 8px 8px !important;
+    font-size: 12px !important;
+  }
+
+  .hide-on-mobile {
+    display: none !important;
+  }
+
+  .hero-right-mobile {
+    text-align: left !important;
+    width: 100% !important;
+  }
+}
